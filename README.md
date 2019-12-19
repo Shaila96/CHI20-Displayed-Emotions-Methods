@@ -19,18 +19,18 @@ Packages are available on CRAN and can be installed using a simple call to `inst
 ## Script Set
 
 **Validation Scripts (vs)**
-	- vs-supplementary-plots.Rmd
-	- vs-time-series-plots.Rmd
+- vs-supplementary-plots.Rmd
+- vs-time-series-plots.Rmd
 	
 	
 	
-**Note: Please do not run any script after this.**
+####Note: Please do not run any script after this.
 ---------------------------------------------------------------------------------------------------------
 
 **Utility Scripts (us)**
 
-	- us-common-functions.R
-		- Useful functions that are called from the other scripts.
+- us-common-functions.R
+	- Useful functions that are called from the other scripts.
 
 
 
