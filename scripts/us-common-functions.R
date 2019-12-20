@@ -270,11 +270,17 @@ format_each_raw_data <- function(df, file_name) {
 }
 
 
-format_raw_data <- function() {
+format_raw_data <- function(dummy=T) {
   ## b_facs_raw_file_name
   ## c_facs_raw_file_name
-  b_facs_df <- custom_read_csv(file.path(current_dir, data_dir, final_data_dir, b_dummy_file_name))
-  c_facs_df <- custom_read_csv(file.path(current_dir, data_dir, final_data_dir, c_dummy_file_name))
+  
+  if (dummy==T) {
+    b_facs_df <- custom_read_csv(file.path(current_dir, data_dir, final_data_dir, b_dummy_file_name))
+    c_facs_df <- custom_read_csv(file.path(current_dir, data_dir, final_data_dir, c_dummy_file_name))
+  } else {
+    b_facs_df <- custom_read_csv(file.path(current_dir, data_dir, final_data_dir, b_facs_raw_file_name))
+    c_facs_df <- custom_read_csv(file.path(current_dir, data_dir, final_data_dir, c_facs_raw_file_name))
+  }
   
   format_each_raw_data(b_facs_df, b_facs_new_file_name)
   format_each_raw_data(c_facs_df, c_facs_new_file_name)
