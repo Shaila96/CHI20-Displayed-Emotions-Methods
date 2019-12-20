@@ -19,8 +19,8 @@ Packages are available on CRAN and can be installed using a simple call to `inst
 ## Script Set
 
 **Validation Scripts (vs)**
-- vs-supplementary-plots.Rmd
-- vs-time-series-plots.Rmd
+- vs-batch-continual.R
+- vs-subject-wise-plot.R
 	
 	
 	
