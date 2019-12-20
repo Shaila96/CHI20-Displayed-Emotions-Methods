@@ -1,8 +1,0 @@
-"","Angry","Disgusted","Afraid","Happy","Sad","Surprised","Neutral"
-"Angry",0,0,0,0,0,0,0
-"Disgusted",NA,0,0,0,0,0,0
-"Afraid",NA,NA,0,0,0,0,0.02
-"Happy",NA,NA,NA,0,0,0,0.06
-"Sad",NA,NA,NA,NA,0,0,0.07
-"Surprised",NA,NA,NA,NA,NA,0,0
-"Neutral",NA,NA,NA,NA,NA,NA,0.84
