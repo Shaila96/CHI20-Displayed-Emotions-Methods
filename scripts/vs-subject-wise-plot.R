@@ -640,8 +640,7 @@ draw_panorama_heatmap <- function(facs_df, type, test=F) {
 #-------------------------#
 #-------Main Program------#
 #-------------------------#
-#### facs_df <<- read_data()
-# facs_df <<- read_new_data()
+facs_df <<- read_new_data()
 
 
 #### draw_signal_heatmap_plots(facs_df, heat_map_type='summative', test=T)

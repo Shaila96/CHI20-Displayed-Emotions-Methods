@@ -194,8 +194,8 @@ draw_session_group_plots <- function(facs_df, type, test=F) {
     } 
     
     combined_dt_plot <- plot_grid(plotlist=plot_list, 
-                            labels=c('A', 'B'), 
-                            label_size=18,
+                            labels=c('a', 'b'), 
+                            label_size=36,
                             ncol=2)
     
     save_plot(file.path(all_session_plots_dir , 
@@ -211,7 +211,6 @@ draw_session_group_plots <- function(facs_df, type, test=F) {
 #-------------------------#
 #-------Main Program------#
 #-------------------------#
-#### facs_df <<- read_data()
 facs_df <<- read_new_data()
 
 
