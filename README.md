@@ -1,4 +1,4 @@
-# Displayed-Emotions-Methods
+# CHI20-Displayed-Emotions-Methods
 This repository contains the R scripts to validate the Emotional Footprints of Email Interruptions.
 
 
