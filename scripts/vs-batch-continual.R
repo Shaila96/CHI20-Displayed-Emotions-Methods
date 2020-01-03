@@ -211,7 +211,7 @@ draw_session_group_plots <- function(facs_df, type, test=F) {
 #-------------------------#
 #-------Main Program------#
 #-------------------------#
-facs_df <<- read_new_data()
+# facs_df <<- read_new_data()
 
 
 # get_stats(facs_df)

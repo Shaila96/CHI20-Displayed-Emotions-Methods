@@ -6,14 +6,22 @@
 ### Here we will read the data form the co-occurence matrices
 
 
+# install.packages("car")
+# install.packages("MASS")
+# install.packages("grDevices")
+
 library(car)
 library(MASS)
 
 
 script_dir <- dirname(rstudioapi::getSourceEditorContext()$path)
+current_dir <- dirname(script_dir)
+
+source(file.path(script_dir, 'us-common-functions.R'))
 
 
-setwd("put_the_path_where_the_data_are") 
+
+# setwd("put_the_path_where_the_data_are") 
 
 
 TFEb<-matrix(NA, 13 ,7) ### Total Facial Emotions for Batch (7 emotion in # of frames)
@@ -22,6 +30,8 @@ TFEc<-matrix(NA, 13,7)	### Total Facial Emotions for Continuous (7 emotion in # 
 Sb<-c("T016","T021","T051","T077","T079","T083","T085","T106","T139","T144","T166","T175","T178")
 Sc<-c("T005","T063","T064","T068","T092","T094","T098","T099","T121","T124","T132","T151","T157")
 
+
+setwd(file.path(current_dir, 'curated-data', 'Subj Data', 'Batch', 'DT'))
 tmpc<-1
 for (i in Sb){
 	tmpB1<-read.csv(paste(i,".csv",sep=""),header=T,sep=",")
@@ -29,6 +39,7 @@ for (i in Sb){
 	tmpc<-tmpc+1
 }
 
+setwd(file.path(current_dir, 'curated-data', 'Subj Data', 'Continual', 'DT'))
 tmpc<-1
 for (i in Sc){
 	tmpB1<-read.csv(paste(i,".csv",sep=""),header=T,sep=",")
@@ -54,7 +65,7 @@ Em[Em==7]<-"Ne"
 G<-TFE[,3]
 G[G==0]<-"B"
 G[G==1]<-"C"
-quartz()
+# quartz()
 interaction.plot(G,Em,TFE[,1], type="b", col=c("orange","red","brown","green","black","blue","cyan"), leg.bty="o", fixed=F,lwd=2, pch=c(18,24,22,17,15,16,19), trace.label="Emotions",xlab="",ylab="")
 
 
@@ -63,7 +74,7 @@ fit0
 summary(fit0)	### anova table
 
 ### Diagnostic Plots
-quartz()
+# quartz()
 layout(matrix(1:4,2,2))
 plot(fit0)
 
@@ -72,7 +83,7 @@ fit0<-aov((TFE[,1]+1)~ factor (TFE[,2])* factor(TFE[,3]))
 fit0
 summary(fit0)	### anova table
 ### BOX-COX
-quartz()
+# quartz()
 boxcox(fit0)
 
 fit<-aov(log(TFE[,1]+1)~ factor (TFE[,2])* factor(TFE[,3]))
@@ -80,7 +91,7 @@ fit
 summary(fit)	### anova table
 
 ### Test the normality assumption in the residuals
-quartz()
+# quartz()
 qqnorm(fit$residuals,main="NPP for residuals")
 qqline(fit$residuals,col="red",lty=1,lwd=2)
 shapiro.test(fit$residuals)
@@ -94,7 +105,7 @@ fligner.test(log(TFE[,1])~factor(TFE[,3]))
 
 
 ### Diagnostic Plots
-quartz()
+# quartz()
 layout(matrix(1:4,2,2))
 plot(fit)
 
@@ -106,7 +117,7 @@ summary(fit1)	### anova table
 
 
 ### Test the normality assumption in the residuals
-quartz()
+# quartz()
 qqnorm(fit1$residuals,main="NPP for residuals")
 qqline(fit1$residuals,col="red",lty=1,lwd=2)
 shapiro.test(fit1$residuals)
@@ -120,7 +131,7 @@ fligner.test(log(TFE[,1])~factor(TFE[,3]))
 
 
 ### Diagnostic Plots
-quartz()
+# quartz()
 layout(matrix(1:4,2,2))
 plot(fit1)
 
@@ -138,7 +149,7 @@ fit1
 summary(fit1)	### anova table
 
 # Plot Means with Error Bars
-quartz()
+# quartz()
 par(mfrow=c(1,2))
 library(gplots)
 plotmeans(log(TFE[,1]+1)~factor(TFE[,2]),xlab="", ylab="", main="Mean plot with 95% CI")
@@ -183,14 +194,20 @@ scheffe.test(log(TFE[,1]+1),factor(TFE[,3]), DFerror=DFE, MSerror=MSE)$groups
 STFb<-matrix(NA, 13 ,6) ### Total Facial Emotions for Batch (7 emotion in # of frames)
 STFc<-matrix(NA, 13,6)	### Total Facial Emotions for Continuous (7 emotion in # of frames)
 
+
+
 Sb<-c("T016","T021","T051","T077","T079","T083","T085","T106","T139","T144","T166","T175","T178")
 Sc<-c("T005","T063","T064","T068","T092","T094","T098","T099","T121","T124","T132","T151","T157")
+
+setwd(file.path(current_dir, 'curated-data', 'Subj Data', 'Batch', 'DT'))
 tmpc<-1
 for (i in Sb){
 	tmpB1<-read.csv(paste(i,".csv",sep=""),header=T,sep=",")
 	STFb[tmpc,1:6]<-c(tmpB1[1,6],tmpB1[2,6],tmpB1[3,6],tmpB1[4,6],tmpB1[5,7],tmpB1[5,8])
 	tmpc<-tmpc+1
 }
+
+setwd(file.path(current_dir, 'curated-data', 'Subj Data', 'Continual', 'DT'))
 tmpc<-1
 for (i in Sc){
 	tmpB1<-read.csv(paste(i,".csv",sep=""),header=T,sep=",")
@@ -205,7 +222,7 @@ STC<-cbind(c(STFc[,1:6]),rep(1:6,each=13),rep(1,6*13))
 STF<-rbind(STB,STC)
 STFper<-rbind(colSums(STFb[,1:6]), colSums(STFc[,1:6]))
 
-quartz()
+# quartz()
 interaction.plot(STF[,3],STF[,2],STF[,1], type="b", col=c(7:1), leg.bty="o", lwd=2, pch=c(18,24,22,17,15,16,19),xlab="Group", ylab="Mean of Frames", main="Interaction plot of mean X per levels of factors A and B")
 
 
@@ -214,7 +231,7 @@ fit0
 summary(fit0)	### anova table
 
 ### BOX-COX
-quartz()
+# quartz()
 boxcox(fit0)
 
 fit<-aov(log(STF[,1]+1)~ factor(STF[,2])* factor(STF[,3]))
@@ -222,7 +239,7 @@ fit
 summary(fit)	### anova table
 
 ### Test the normality assumption in the residuals
-quartz()
+# quartz()
 qqnorm(fit$residuals,main="NPP for residuals")
 qqline(fit$residuals,col="red",lty=1,lwd=2)
 shapiro.test(fit$residuals)
@@ -236,7 +253,7 @@ fligner.test(log(STF[,1]+1)~factor(STF[,3]))
 
 
 ### Diagnostic Plots
-quartz()
+# quartz()
 layout(matrix(1:4,2,2))
 plot(fit)
 
