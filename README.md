@@ -19,9 +19,12 @@ Please download Batch_FACS_data.csv and Continuous_FACS_data.csv from https://os
 	
 ## Script Set
 
+##### Please run the following scripts sequentially
+
 **Validation Scripts (vs)**
 - vs-batch-continual.R
 - vs-subject-wise-plot.R
+- vs-anova-analysis.R
 	
 	
 	
