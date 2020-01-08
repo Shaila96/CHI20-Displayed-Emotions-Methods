@@ -26,6 +26,11 @@ Please download Batch_FACS_data.csv and Continuous_FACS_data.csv from https://os
 	- Produces co-occurrence matrices plot for the batch and continual email groups.
 	
 ![alt text](https://github.com/UH-CPL/CHI20-Displayed-Emotions-Methods/blob/master/plots/all_session_plots/DT/DT_group_summative.pdf)
+
+
+<img src="https://github.com/UH-CPL/CHI20-Displayed-Emotions-Methods/blob/master/plots/all_session_plots/DT/DT_group_summative.pdf" width="250">
+
+
 - vs-subject-wise-plot.R
 	- Produces pair plot of emotion stack and co-occurance matrix for each subject from batch and continual email groups.
 	- Produces meta data for subjectwise matrices.
