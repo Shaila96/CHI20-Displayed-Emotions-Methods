@@ -15,7 +15,7 @@ Packages are available on CRAN and can be installed using a simple call to `inst
     install.packages('PackageName')
 	
 ## Data Set
-Please download Batch_FACS_data.csv and Continuous_FACS_data.csv from [OSF Data Repository] (https://osf.io/mhdgt/) and place it in data/final-data folder.
+Please download Batch_FACS_data.csv and Continuous_FACS_data.csv from [OSF Data Repository](https://osf.io/mhdgt/) and place it in data/final-data folder.
 	
 ## Script Set
 
