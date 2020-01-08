@@ -24,7 +24,9 @@ Please download Batch_FACS_data.csv and Continuous_FACS_data.csv from [OSF Data 
 **Validation Scripts (vs)**
 - vs-batch-continual.R
 	- Produces co-occurrence matrices plot for the batch and continual email groups.
+	
 	![](https://drive.google.com/uc?export=view&id=1k1JqlWfyGujmFl5fmceorrV0UFuCdNwG)
+	
 - vs-subject-wise-plot.R
 	- Produces pair plot of emotion stack and co-occurance matrix for each subject from batch and continual email groups.
 	- Produces meta data for subjectwise matrices.
