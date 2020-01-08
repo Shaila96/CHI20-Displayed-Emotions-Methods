@@ -113,6 +113,21 @@ facs_size <- 7
 decorator_hash <- '###########################################################'
 
 
+get_os <- function(){
+  sysinf <- Sys.info()
+  if (!is.null(sysinf)){
+    os <- sysinf['sysname']
+    if (os == 'Darwin')
+      os <- "osx"
+  } else { ## mystery machine
+    os <- .Platform$OS.type
+    if (grepl("^darwin", R.version$os))
+      os <- "osx"
+    if (grepl("linux-gnu", R.version$os))
+      os <- "linux"
+  }
+  tolower(os)
+}
 
 
 custom_read_csv <- function(file_name) {
@@ -129,6 +144,14 @@ save_plot <- function(plot_name, plot, width=default_plot_width, height=default_
   
   plot_path <- file.path(plots_dir, paste0(plot_name, '.pdf'))
   ggsave(plot_path, plot, device=cairo_pdf, width=width, height=height)
+}
+
+new_display <- function(os) {
+  if(os=="osx") {
+    quartz()
+  } else if (os=="windows") {
+    windows()
+  }
 }
 
 
