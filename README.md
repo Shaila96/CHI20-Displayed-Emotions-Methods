@@ -15,13 +15,20 @@ Packages are available on CRAN and can be installed using a simple call to `inst
     install.packages('PackageName')
 	
 ## Data Set
-Please download Batch_FACS_data.csv and Continuous_FACS_data.csv from https://osf.io/mhdgt/ and place it in data/final-data folder.
+Please download Batch_FACS_data.csv and Continuous_FACS_data.csv from [OSF Data Repository](https://osf.io/mhdgt/) and place it in data/final-data folder.
 	
 ## Script Set
 
+##### Please run the following scripts sequentially
+
 **Validation Scripts (vs)**
 - vs-batch-continual.R
+	- Produces co-occurrence matrices plot for the batch and continual email groups.
 - vs-subject-wise-plot.R
+	- Produces pair plot of emotion stack and co-occurance matrix for each subject from batch and continual email groups.
+	- Produces meta data for subjectwise matrices.
+- vs-anova-analysis.R
+	- Produces interaction plot for dominating emotions (i.e., diagonal elements of co-occurrence matrices)
 	
 	
 	
