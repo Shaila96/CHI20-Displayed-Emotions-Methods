@@ -25,11 +25,11 @@ Please download Batch_FACS_data.csv and Continuous_FACS_data.csv from https://os
 - vs-batch-continual.R
 	- Produces co-occurrence matrices plot for the batch and continual email groups.
 	
-<object data="https://github.com/UH-CPL/CHI20-Displayed-Emotions-Methods/blob/master/plots/all_session_plots/DT/DT_group_summative.pdf" type="application/pdf" width="700px" height="700px">
-    <embed src="https://github.com/UH-CPL/CHI20-Displayed-Emotions-Methods/blob/master/plots/all_session_plots/DT/DT_group_summative.pdf">
-        <p>Click the link to view it view it: <a href="https://github.com/UH-CPL/CHI20-Displayed-Emotions-Methods/blob/master/plots/all_session_plots/DT/DT_group_summative.pdf">Download PDF</a>.</p>
-    </embed>
-</object>
+	- <object data="https://github.com/UH-CPL/CHI20-Displayed-Emotions-Methods/blob/master/plots/all_session_plots/DT/DT_group_summative.pdf" type="application/pdf" width="700px" height="700px">
+	    <embed src="https://github.com/UH-CPL/CHI20-Displayed-Emotions-Methods/blob/master/plots/all_session_plots/DT/DT_group_summative.pdf">
+		<p>Click the link to view it view it: <a href="https://github.com/UH-CPL/CHI20-Displayed-Emotions-Methods/blob/master/plots/all_session_plots/DT/DT_group_summative.pdf">Download PDF</a>.</p>
+	    </embed>
+	</object>
 
 
 - vs-subject-wise-plot.R
